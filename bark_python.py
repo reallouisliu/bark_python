@@ -14,7 +14,7 @@ class Bark:
 
     def __init__(self, device_KEY: str, server_url: str) -> None:
         self.DEVICE_KEY = device_KEY
-        self.SERVER_URL = server_url
+        self.SERVER_URL = server_url + "/push"
         
 
     def send_message(
@@ -67,7 +67,7 @@ class Bark:
             payload.update(user_config)
         try:
             response = requests.post(
-                url = self.SERVER_URL + "/push",
+                url = self.SERVER_URL,
                 headers={
                     "Content-Type": "application/json; charset=utf-8",
                 },
